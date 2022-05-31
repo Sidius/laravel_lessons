@@ -143,4 +143,7 @@ Route::fallback(function () {
 //Route::get('/', [HomeController::class, 'index']);
 Route::get('/', 'App\Http\Controllers\HomeController@index');
 Route::get('/test', 'App\Http\Controllers\HomeController@test');
+Route::get('/test2', 'App\Http\Controllers\Test\TestController@index');
+//Route::get('/page/about', 'App\Http\Controllers\PageController@show');
+Route::get('/page/{slug}', 'App\Http\Controllers\PageController@show');
 
