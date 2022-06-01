@@ -147,3 +147,10 @@ Route::get('/test2', 'App\Http\Controllers\Test\TestController@index');
 //Route::get('/page/about', 'App\Http\Controllers\PageController@show');
 Route::get('/page/{slug}', 'App\Http\Controllers\PageController@show');
 
+// l-1-8
+Route::resource('/posts', \App\Http\Controllers\PostController::class, ['parameters' => [
+    'posts' => 'id'
+]]);
+//Route::resource('/posts', 'App\Http\Controllers\PostController');
+// All keys = post
+
