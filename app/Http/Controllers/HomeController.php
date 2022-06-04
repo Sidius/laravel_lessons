@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PostModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -74,6 +75,12 @@ class HomeController extends Controller
 //            ->orderBy('city.ID')
 //            ->get();
 //        dd($data);
+
+        // l_1_13
+        $post_model = new PostModel();
+        $post_model->title = 'Статья 2';
+//        $post_model->content = 'Lorem ipsum 1';
+        $post_model->save();
 
         return view('home', ['res' => 5, 'name' => 'John']);
     }
