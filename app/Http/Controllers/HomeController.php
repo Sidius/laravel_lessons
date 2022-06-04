@@ -67,13 +67,13 @@ class HomeController extends Controller
 //        $data = DB::table('country')->sum('Population');
 //        $data = DB::table('country')->avg('Population');
 
-        $data = DB::table('city')->select('CountryCode')->distinct()->get();
-
-        $data = DB::table('city')->select('city.ID', 'city.Name AS city_name', 'country.Code', 'country.Name AS country_name')->limit(10)
-            ->join('country', 'city.CountryCode', '=', 'country.Code')
-            ->orderBy('city.ID')
-            ->get();
-        dd($data);
+//        $data = DB::table('city')->select('CountryCode')->distinct()->get();
+//
+//        $data = DB::table('city')->select('city.ID', 'city.Name AS city_name', 'country.Code', 'country.Name AS country_name')->limit(10)
+//            ->join('country', 'city.CountryCode', '=', 'country.Code')
+//            ->orderBy('city.ID')
+//            ->get();
+//        dd($data);
 
         return view('home', ['res' => 5, 'name' => 'John']);
     }
