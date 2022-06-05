@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
+use App\Models\Country;
 use App\Models\PostModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -77,10 +79,41 @@ class HomeController extends Controller
 //        dd($data);
 
         // l_1_13
-        $post_model = new PostModel();
-        $post_model->title = 'Статья 2';
-//        $post_model->content = 'Lorem ipsum 1';
-        $post_model->save();
+//        $post_model = new PostModel();
+//        $post_model->title = 'Статья 2';
+////        $post_model->content = 'Lorem ipsum 1';
+//        $post_model->save();
+
+        // l_1_14
+//        $data = Country::all();
+//        $data = Country::limit(5)->get();
+//        $data = Country::query()->limit(5)->get();
+//        $data = City::query()->find(5);
+//        $data = Country::query()->find('AGO');
+//        dd($data);
+
+//        $post_model = new PostModel();
+//        $post_model->title = 'Post 4';
+//        $post_model->content = 'Lorem ipsum 4';
+//        $post_model->save();
+
+//        PostModel::query()->create(['title' => 'Post 5', 'content' => 'Lorem ipsum 5']);
+//        $post_model = new PostModel();
+//        $post_model->fill(['title' => 'Post 7', 'content' => 'Lorem ipsum 7']);
+//        $post_model->save();
+
+//        $post_model = PostModel::query()->find(6);
+//        $post_model->content = 'Lorem ipsum 7.1';
+//        $post_model->save();
+
+//        PostModel::query()->where('id', '>', 3)->update(['updated_at' => NOW()]);
+
+//        $post_model = PostModel::query()->find(6);
+//        $post_model->delete();
+
+//        PostModel::destroy(4);
+//        PostModel::destroy([4, 5]);
+//        PostModel::destroy(4, 5);
 
         return view('home', ['res' => 5, 'name' => 'John']);
     }

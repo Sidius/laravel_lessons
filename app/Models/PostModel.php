@@ -21,5 +21,8 @@ class PostModel extends Model
         'content' => 'Lorem ipsum...',
     ];
 
+//    protected $fillable = ['title'];
+    protected $fillable = ['title', 'content'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
 }
