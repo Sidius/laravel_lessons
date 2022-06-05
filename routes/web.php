@@ -142,6 +142,11 @@ Route::fallback(function () {
 // l-1-7
 //Route::get('/', [HomeController::class, 'index']);
 Route::get('/', 'App\Http\Controllers\HomeController@index');
+Route::get('/l_1_9', 'App\Http\Controllers\HomeController@l_1_9');
+Route::get('/l_1_11', 'App\Http\Controllers\HomeController@l_1_11');
+Route::get('/l_1_12', 'App\Http\Controllers\HomeController@l_1_12');
+Route::get('/l_1_13', 'App\Http\Controllers\HomeController@l_1_13');
+Route::get('/l_1_14', 'App\Http\Controllers\HomeController@l_1_14');
 Route::get('/test', 'App\Http\Controllers\HomeController@test');
 Route::get('/test2', 'App\Http\Controllers\Test\TestController@index');
 //Route::get('/page/about', 'App\Http\Controllers\PageController@show');

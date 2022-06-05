@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 // RESOURCE
-// created by php artisan make:controller PostController -r
+// php artisan make:controller PostController -r
 class PostController extends Controller
 {
 

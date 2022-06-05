@@ -25,4 +25,10 @@ class PostModel extends Model
     protected $fillable = ['title', 'content'];
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+    public function rubric()
+    {
+        return $this->belongsTo(Rubric::class, 'rubric_id', $this->primaryKey);
+//        return $this->belongsTo(Rubric::class);
+    }
+
 }
