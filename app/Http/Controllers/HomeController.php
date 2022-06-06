@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Country;
 use App\Models\PostModel;
 use App\Models\Rubric;
+use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -19,8 +20,30 @@ class HomeController extends Controller
 //        $rubric = Rubric::query()->find(3);
 //        dump($rubric->title, $rubric->post->title);
 
-        $rubric = Rubric::query()->find(1);
-        dump($rubric->title, $rubric->posts);
+        // l_1_16
+//        $rubric = Rubric::query()->find(1);
+//        $posts = Rubric::query()->find(1)->posts()
+//            ->select('title')->where('id', '>', '2')->get();
+//        dump($rubric->title, $rubric->posts, $posts);
+
+//        $posts = PostModel::query()->with('rubric')->where('id', '>', 1)->get();
+//
+//        foreach ($posts as $post) {
+//            dump($post->title, $post->rubric->title);
+//        }
+
+        $post = PostModel::query()->find(2);
+        dump($post->title);
+        foreach ($post->tags as $tag) {
+            dump($tag->title);
+        }
+
+        $tag = Tag::query()->find(1);
+        dump($tag->title);
+        foreach ($tag->posts as $post) {
+            dump($post->title);
+        }
+
 
         return view('home', ['res' => 5, 'name' => 'John']);
     }
