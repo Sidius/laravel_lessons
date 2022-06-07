@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{ $slug ?? null }} page</h1>
+    <h1>A page</h1>
 </body>
 </html>

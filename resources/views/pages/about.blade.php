@@ -1,15 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.layout')
 
-<h1>About Page</h1>
+@section('head.title')
+    <title>About Page</title>
+@endsection
 
-</body>
-</html>
+@section('content')
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1>About Page</h1>
+        </div>
+    </section>
+@endsection

@@ -14,12 +14,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // l_1_15
-//        $post = PostModel::query()->find(2);
-//        dump($post->title, $post->rubric->title);
-//        $rubric = Rubric::query()->find(3);
-//        dump($rubric->title, $rubric->post->title);
 
+        return view('home', []);
+    }
+
+    public function l_1_16()
+    {
         // l_1_16
 //        $rubric = Rubric::query()->find(1);
 //        $posts = Rubric::query()->find(1)->posts()
@@ -44,6 +44,16 @@ class HomeController extends Controller
             dump($post->title);
         }
 
+        return view('home', ['res' => 5, 'name' => 'John']);
+    }
+
+    public function l_1_15()
+    {
+        // l_1_15
+//        $post = PostModel::query()->find(2);
+//        dump($post->title, $post->rubric->title);
+//        $rubric = Rubric::query()->find(3);
+//        dump($rubric->title, $rubric->post->title);
 
         return view('home', ['res' => 5, 'name' => 'John']);
     }
