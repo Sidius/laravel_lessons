@@ -10,12 +10,49 @@
     <section class="jumbotron text-center">
         <div class="container">
             {!! mb_strtoupper($hi ?? null) !!}
-            @{{ title }}
-            @verbatim
-                {{ title }}
-            @endverbatim
-            {{ $title ?? null }}
+{{--            @{{ title }}--}}
+{{--            @verbatim--}}
+{{--                {{ title }}--}}
+{{--            @endverbatim--}}
+
             {{-- $title ?? null --}}
+
+{{--            @isset($data_1)--}}
+{{--                @if(count($data_1) > 20)--}}
+{{--                    Count > 20--}}
+{{--                @elseif(count($data_1) < 20)--}}
+{{--                    Count < 20--}}
+{{--                @else--}}
+{{--                    Count = 20--}}
+{{--                @endif--}}
+{{--            @endisset--}}
+
+{{--            @isset($data_2)--}}
+{{--                Isset data_2--}}
+{{--            @endisset--}}
+
+{{--            @production--}}
+{{--                <h1>PRODUCTION</h1>--}}
+{{--            @endproduction--}}
+
+{{--            @env('local')--}}
+{{--                <h1>LOCAL</h1>--}}
+{{--            @endenv--}}
+
+            @for($i = 0; $i < count($data_1); $i++)
+                @if($data_1[$i] % 2 != 0)
+                    @continue
+                @elseif($data_1[$i] == 6 || $data_1[$i] == 8)
+                    @continue
+                @elseif($data_1[$i] == 16)
+                    @break
+                @endif
+                {{ $data_1[$i] }}
+            @endfor
+
+            @foreach($data_2 as $k => $v)
+                {{ $k }} => {{ $v }}
+            @endforeach
         </div>
     </section>
 
