@@ -24,7 +24,7 @@ class PostModel extends Model
     ];
 
 //    protected $fillable = ['title'];
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['title', 'content', 'rubric_id'];
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     public function rubric()

@@ -7,19 +7,39 @@ use App\Models\Country;
 use App\Models\PostModel;
 use App\Models\Rubric;
 use App\Models\Tag;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
+
     public function index()
     {
         // l_1_20
         $posts = PostModel::query()->orderBy('id', 'desc')->get();
         $title = 'Home Page';
 
-
         return view('home', compact('title', 'posts'));
+    }
+
+    public function create()
+    {
+        $title = 'Create Post';
+        $rubrics = Rubric::query()->pluck('title', 'id')->all();
+
+        return view('create', compact('title', 'rubrics'));
+    }
+
+    public function store(Request $request)
+    {
+//        dump($request->input('title'));
+//        dump($request->input('content'));
+//        dd($request->input('rubric_id'));
+//        dd($request->all());
+        PostModel::query()->create($request->all());
+
+        return redirect()->route('home');
     }
 
     public function l_1_18()
