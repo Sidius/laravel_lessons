@@ -14,6 +14,16 @@ class HomeController extends Controller
 {
     public function index()
     {
+        // l_1_20
+        $posts = PostModel::query()->orderBy('id', 'desc')->get();
+        $title = 'Home Page';
+
+
+        return view('home', compact('title', 'posts'));
+    }
+
+    public function l_1_18()
+    {
         // l_1_18
         $title = 'Home Page';
         $hi = '<h1>Home Page</h1>';
