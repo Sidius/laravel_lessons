@@ -153,6 +153,7 @@ Route::get('/l_1_14', 'App\Http\Controllers\HomeController@l_1_14');
 Route::get('/l_1_15', 'App\Http\Controllers\HomeController@l_1_15');
 Route::get('/l_1_16', 'App\Http\Controllers\HomeController@l_1_16');
 Route::get('/l_1_18', 'App\Http\Controllers\HomeController@l_1_18');
+Route::get('/l_1_23', 'App\Http\Controllers\HomeController@l_1_23');
 Route::get('/test', 'App\Http\Controllers\HomeController@test');
 Route::get('/test2', 'App\Http\Controllers\Test\TestController@index');
 Route::get('/page/about', 'App\Http\Controllers\PageController@show')->name('page.about');

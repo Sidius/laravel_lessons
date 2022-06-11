@@ -15,8 +15,28 @@ use Illuminate\Support\Str;
 class HomeController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
+        // l_1_23
+        $request->session()->put('test', 'Test value');
+        session(['cart' => [
+            ['id' => 1, 'title' => 'Product 1',],
+            ['id' => 2, 'title' => 'Product 2',],
+        ]]);
+
+        dump(session('test'));
+        dump(session('cart')[1]['title']);
+        dump($request->session()->get('cart')[0]['title']);
+
+//        $request->session()->push('cart', ['id' => 3, 'title' => 'Product 3',]);
+
+//        dump($request->session()->pull('test'));
+        $request->session()->forget('test');
+//        $request->session()->flush();
+
+//        dump($request->session()->all());
+        dump(session()->all());
+
         // l_1_20
         $posts = PostModel::query()->orderBy('id', 'desc')->get();
         $title = 'Home Page';
@@ -60,7 +80,21 @@ class HomeController extends Controller
 
         PostModel::query()->create($request->all());
 
+        // l_1_23
+        $request->session()->flash('success', 'Данные сохранены');
+
         return redirect()->route('home');
+    }
+
+    public function l_1_23()
+    {
+        // l_1_23
+
+
+        $posts = PostModel::query()->orderBy('id', 'desc')->get();
+        $title = 'Home Page';
+
+        return view('home', compact('title', 'posts'));
     }
 
     public function l_1_18()
