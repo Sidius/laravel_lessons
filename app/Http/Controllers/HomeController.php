@@ -8,6 +8,7 @@ use App\Models\PostModel;
 use App\Models\Rubric;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -25,8 +26,25 @@ class HomeController extends Controller
 //        dump($request->cookie('test'));
 
         // l_1_20
-        $posts = PostModel::query()->orderBy('id', 'desc')->get();
+//        $posts = PostModel::query()->orderBy('id', 'desc')->get();
         $title = 'Home Page';
+
+        // l_1_24 (Cache)
+//        Cache::put('key', 'Value', 60);
+//        Cache::put('key', 'Value');
+//        Cache::forever('key', 'Value');
+        if (Cache::has('posts')) {
+            $posts = Cache::get('posts');
+        } else {
+            $posts = PostModel::query()->orderBy('id', 'desc')->get();
+            Cache::put('posts', $posts);
+        }
+
+//        Cache::put('key', 'Value', 300);
+//        dump(Cache::pull('key'));
+//        Cache::forget('key');
+//        dump(Cache::get('key'));
+//        Cache::flush();
 
         return view('home', compact('title', 'posts'));
     }
