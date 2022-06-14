@@ -159,6 +159,8 @@ Route::get('/test2', 'App\Http\Controllers\Test\TestController@index');
 Route::get('/page/about', 'App\Http\Controllers\PageController@show')->name('page.about');
 Route::get('/page/{slug}', 'App\Http\Controllers\PageController@show');
 
+Route::get('/l_1_26/send', 'App\Http\Controllers\ContactController@send');
+
 // l-1-8
 //Route::resource('/l-1-8/posts', \App\Http\Controllers\PostController::class, ['parameters' => [
 //    'posts' => 'id'
