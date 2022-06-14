@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -159,7 +160,8 @@ Route::get('/test2', 'App\Http\Controllers\Test\TestController@index');
 Route::get('/page/about', 'App\Http\Controllers\PageController@show')->name('page.about');
 Route::get('/page/{slug}', 'App\Http\Controllers\PageController@show');
 
-Route::get('/l_1_26/send', 'App\Http\Controllers\ContactController@send');
+//Route::get('/l_1_26/send', 'App\Http\Controllers\ContactController@send');
+Route::match(['get', 'post'], '/l_1_26/send', [ContactController::class, 'send'])->name('email.send');
 
 // l-1-8
 //Route::resource('/l-1-8/posts', \App\Http\Controllers\PostController::class, ['parameters' => [

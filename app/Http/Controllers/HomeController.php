@@ -99,6 +99,7 @@ class HomeController extends Controller
             ['id' => 1, 'title' => 'Product 1',],
             ['id' => 2, 'title' => 'Product 2',],
         ]]);
+//        $request->session()->flash('success', 'Сообщение отправлено.');
 
         dump(session('test'));
         dump(session('cart')[1]['title']);

@@ -11,14 +11,16 @@ class TestMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $body;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($body)
     {
-        //
+        $this->body = $body;
     }
 
     /**
@@ -28,6 +30,6 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this->view('test2');
+        return $this->view('test2')->attach(url('public/img/1.jpg'));
     }
 }
