@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use IntlDateFormatter;
 
 // php artisan make:model Post
-// php artisan make:model Post -m
+// php artisan make:model Post -m (create also migration file)
 class PostModel extends Model
 {
     use HasFactory;

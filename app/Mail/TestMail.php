@@ -30,6 +30,6 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this->view('test2')->attach(url('public/img/1.jpg'));
+        return $this->view('test2')->attach(base_path('public/img/1.jpg'));
     }
 }

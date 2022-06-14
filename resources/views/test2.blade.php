@@ -10,7 +10,7 @@
 <body>
 
     {!! $body ?? null !!}
-    <img src="{{ $message->embed(url('public/img/2.jpg')) }}" alt="">
+    <img src="{{ $message->embed(base_path('public/img/2.jpg')) }}" alt="">
 
 </body>
 </html>
