@@ -75,6 +75,11 @@ class HomeController extends Controller
 //            'content' => 'required',
 //            'rubric_id' => 'integer',
 //        ];
+//        $rules = [
+//            'title' => ['required', 'min:5', 'max:100'],
+//            'content' => ['required'],
+//            'rubric_id' => ['integer'],
+//        ];
 //        $messages = [
 //            'title.required' => 'Заполните поля названия',
 //            'title.min' => 'Минимум 5 символов в названии',

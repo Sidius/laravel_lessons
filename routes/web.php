@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -146,6 +147,13 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('/create', 'App\Http\Controllers\HomeController@create')->name('posts.create');
 Route::post('/', [HomeController::class, 'store'])->name('posts.store');
 
+// l-1-8
+//Route::resource('/l-1-8/posts', \App\Http\Controllers\PostController::class, ['parameters' => [
+//    'posts' => 'id'
+//]]);
+//Route::resource('/posts', 'App\Http\Controllers\PostController');
+// All keys = post
+
 Route::get('/l_1_9', 'App\Http\Controllers\HomeController@l_1_9');
 Route::get('/l_1_11', 'App\Http\Controllers\HomeController@l_1_11');
 Route::get('/l_1_12', 'App\Http\Controllers\HomeController@l_1_12');
@@ -163,10 +171,6 @@ Route::get('/page/{slug}', 'App\Http\Controllers\PageController@show');
 //Route::get('/l_1_26/send', 'App\Http\Controllers\ContactController@send');
 Route::match(['get', 'post'], '/l_1_26/send', [ContactController::class, 'send'])->name('email.send');
 
-// l-1-8
-//Route::resource('/l-1-8/posts', \App\Http\Controllers\PostController::class, ['parameters' => [
-//    'posts' => 'id'
-//]]);
-//Route::resource('/posts', 'App\Http\Controllers\PostController');
-// All keys = post
+Route::get('/register', [UserController::class, 'create'])->name('register.create');
+Route::post('/register', [UserController::class, 'store'])->name('register.store');
 
