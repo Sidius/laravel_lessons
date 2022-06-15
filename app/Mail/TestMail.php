@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+// php artisan make:mail TestMail
 class TestMail extends Mailable
 {
     use Queueable, SerializesModels;
