@@ -45,9 +45,25 @@
                     <strong>Album</strong>
                 </a>
 
-                <a href="{{ route('posts.create') }}">Create</a>
+{{--                @if (auth()->check())--}}
+{{--                    <a href="#">{{ auth()->user()->name }}</a>--}}
+{{--                    <a href="{{ route('logout') }}">Log out</a>--}}
+{{--                @else--}}
+{{--                    <a href="{{ route('register.create') }}">Register</a>--}}
+{{--                    <a href="{{ route('login.create') }}">Login</a>--}}
+{{--                @endif--}}
 
-                <a href="{{ route('register.create') }}">Register</a>
+                @auth
+                    <a href="#">{{ auth()->user()->name }}</a>
+                    <a href="{{ route('logout') }}">Log out</a>
+                @endauth
+
+                @guest
+                    <a href="{{ route('register.create') }}">Register</a>
+                    <a href="{{ route('login.create') }}">Login</a>
+                @endguest
+
+                <a href="{{ route('posts.create') }}">Create</a>
 
                 @php
                     //dump(\Illuminate\Support\Facades\Auth::check());
