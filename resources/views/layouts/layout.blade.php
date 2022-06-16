@@ -67,7 +67,7 @@
 
                 @php
                     //dump(\Illuminate\Support\Facades\Auth::check());
-                    dump(auth()->check());
+                    //dump(auth()->check());
                 @endphp
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">

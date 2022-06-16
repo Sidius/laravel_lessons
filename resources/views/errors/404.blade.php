@@ -10,7 +10,7 @@
 <body>
 
 <?php if (isset($exception)) { ?>
-    <h1>{{ $exception->getMessage() }}</h1>
+    <h1>404 - Page not found...</h1>
 <?php } ?>
 
 </body>

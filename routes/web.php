@@ -171,12 +171,18 @@ Route::get('/page/{slug}', 'App\Http\Controllers\PageController@show');
 //Route::get('/l_1_26/send', 'App\Http\Controllers\ContactController@send');
 Route::match(['get', 'post'], '/l_1_26/send', [ContactController::class, 'send'])->name('email.send');
 
-Route::get('/register', [UserController::class, 'create'])->name('register.create');
-Route::post('/register', [UserController::class, 'store'])->name('register.store');
+//Route::group(['middleware' => 'guest', 'prefix' => 'admin'], function () {
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/register', [UserController::class, 'create'])->name('register.create');
+    Route::post('/register', [UserController::class, 'store'])->name('register.store');
+    Route::get('/login', [UserController::class, 'loginForm'])->name('login.create');
+    Route::post('/login', [UserController::class, 'login'])->name('login');
+});
 
-Route::get('/login', [UserController::class, 'loginForm'])->name('login.create');
-Route::post('/login', [UserController::class, 'login'])->name('login');
-Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::get('/admin', [\App\Http\Controllers\Admin\MainController::class, 'index']);
+//Route::get('/admin', [\App\Http\Controllers\Admin\MainController::class, 'index'])->middleware('admin');
+Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
+    Route::get('/', [\App\Http\Controllers\Admin\MainController::class, 'index']);
+});
 
