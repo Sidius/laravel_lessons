@@ -27,7 +27,6 @@ class HomeController extends Controller
 
         // l_1_20
 //        $posts = PostModel::query()->orderBy('id', 'desc')->get();
-        $title = 'Home Page';
 
         // l_1_24 (Cache)
 //        Cache::put('key', 'Value', 60);
@@ -45,6 +44,8 @@ class HomeController extends Controller
 //        Cache::forget('key');
 //        dump(Cache::get('key'));
 //        Cache::flush();
+
+        $title = 'Home Page';
 
         return view('home', compact('title', 'posts'));
     }
