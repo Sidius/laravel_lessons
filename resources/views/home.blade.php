@@ -91,7 +91,7 @@
                             $posts
                                 //->appends(['test' => request()->test])
                                 //->fragment('foo')
-                                ->onEachSide(2)
+                                ->onEachSide(1)
                                 //->links()
                                 //->links('vendor.pagination.bootstrap-5')
                                 ->links('vendor.pagination.my-pagination')
