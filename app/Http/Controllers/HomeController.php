@@ -32,18 +32,23 @@ class HomeController extends Controller
 //        Cache::put('key', 'Value', 60);
 //        Cache::put('key', 'Value');
 //        Cache::forever('key', 'Value');
-        if (Cache::has('posts')) {
-            $posts = Cache::get('posts');
-        } else {
-            $posts = PostModel::query()->orderBy('id', 'desc')->get();
-            Cache::put('posts', $posts);
-        }
+//        if (Cache::has('posts')) {
+//            $posts = Cache::get('posts');
+//        } else {
+//            $posts = PostModel::query()->orderBy('id', 'desc')->get();
+//            Cache::put('posts', $posts);
+//        }
 
 //        Cache::put('key', 'Value', 300);
 //        dump(Cache::pull('key'));
 //        Cache::forget('key');
 //        dump(Cache::get('key'));
 //        Cache::flush();
+
+        // l_1_33 (Pagination)
+        $posts = PostModel::query()->orderBy('id', 'desc')
+            ->paginate(3);
+//            ->simplePaginate(3);
 
         $title = 'Home Page';
 

@@ -86,6 +86,17 @@
                                 </div>
                             </div>
                     @endforeach
+                    <div class="col-md-12">
+                        {{
+                            $posts
+                                //->appends(['test' => request()->test])
+                                //->fragment('foo')
+                                ->onEachSide(2)
+                                //->links()
+                                //->links('vendor.pagination.bootstrap-5')
+                                ->links('vendor.pagination.my-pagination')
+                        }}
+                    </div>
                 </div>
             @endisset
         </div>
