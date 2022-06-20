@@ -46,7 +46,7 @@ class HomeController extends Controller
 //        Cache::flush();
 
         // l_1_33 (Pagination)
-        $posts = PostModel::query()->orderBy('id', 'desc')
+        $posts = PostModel::query()->orderBy('created_at', 'desc')
             ->paginate(3);
 //            ->simplePaginate(3);
 

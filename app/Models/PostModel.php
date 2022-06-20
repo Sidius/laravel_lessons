@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use IntlDateFormatter;
 
 // php artisan make:model Post
@@ -50,4 +51,13 @@ class PostModel extends Model
         return $formatter->format(new \DateTime($this->created_at));
     }
 
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = Str::title($value);
+    }
+
+    public function getTitleAttribute($value)
+    {
+        return Str::upper($value);
+    }
 }
