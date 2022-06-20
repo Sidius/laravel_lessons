@@ -7,10 +7,12 @@ use App\Models\Country;
 use App\Models\PostModel;
 use App\Models\Rubric;
 use App\Models\Tag;
+use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -19,6 +21,10 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
+        // l_1_36 (Logging)
+        Log::warning('Test');
+        Debugbar::warning($request);
+
         // l_1_24 (Cookie)
 //        Cookie::queue('test', 'Test cookie', 5);
 //        Cookie::queue(Cookie::forget('test'));
