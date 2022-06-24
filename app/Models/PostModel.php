@@ -30,7 +30,7 @@ class PostModel extends Model
 
     public function rubric()
     {
-        return $this->belongsTo(Rubric::class, 'rubric_id', $this->primaryKey);
+        return $this->belongsTo(Rubric::class, 'rubric_id', 'id');
 //        return $this->belongsTo(Rubric::class);
     }
 
